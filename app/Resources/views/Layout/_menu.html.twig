@@ -1,0 +1,22 @@
+<div class="menu">
+    <div class="container">
+        <ul class="menu-parent">
+            <li>
+                <a class="{{ app.request.get('_route') == 'film_index' ? 'active' }}" href="{{ path('film_index')}}">
+                    <span class="glyphicon glyphicon-home"></span>
+                    Accueil</a> 
+            </li>
+            <li>
+                <a class="{{ app.request.get('_route') == 'film_new' ? 'active' }}" href="{{ path('film_new')}}">Créer un film </a>
+            </li>    
+            <li>
+                <a class="{{ app.request.get('_route') == 'film_categorie' ? 'active' }}" href="{{ path('film_categorie') }}">Catégorie</a>
+            </li>
+            <li>
+                <a class="{{ app.request.get('_route') == 'film_search' ? 'active' }}"  href="{{ path('film_search') }}">Rechercher</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<br /><br />
+<hr />

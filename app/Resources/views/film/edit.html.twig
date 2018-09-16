@@ -1,0 +1,26 @@
+{% extends 'Layout/page.html.twig' %}
+
+
+{% block title %}Modifier un film{% endblock%}
+
+{% block content %}
+    <h3>Modifier un film</h3>
+    <hr >
+    {{ form_start(edit_form) }}
+ 
+    {{ form_widget(edit_form) }}
+    <div>
+        {% if film.media != null %}
+            <img src="{{ asset('images') }}/{{ film.media }}" alt="" width="300" height="200">
+        {% else %}
+            <img src="{{ asset('img') }}/NoLogo.jpg" alt="" width="300" height="200">
+        {% endif %}
+    </div>
+    <br>
+    <div class="">
+        <a href="{{ path('film_index') }}" class="btn btn-default">Back to the list</a>
+        <input type="submit" value="Modifier"  class="btn btn-primary"/>
+    </div>
+    {{ form_end(edit_form) }}
+   
+{% endblock %}

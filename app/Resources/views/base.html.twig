@@ -1,0 +1,23 @@
+<!doctype html>
+    <head>
+        <title>Gestion Films- {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+       {% block stylesheets %}
+       {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-datepicker.fr.min.js') }}"></script>
+         {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>

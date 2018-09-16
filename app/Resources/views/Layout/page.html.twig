@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('Layout/_header.html.twig') }}
+    <div class="container">
+        {{ include('Layout/_menu.html.twig') }}
+        {{ include('Layout/_error-messages.html.twig') }}
+        {% block content %}
+        {% endblock %}
+    {{ include('Layout/_footer.html.twig') }}
+    </div>
+
+{% endblock %}

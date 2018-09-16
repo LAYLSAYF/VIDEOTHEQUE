@@ -1,0 +1,42 @@
+{% extends 'Layout/page.html.twig' %}
+
+{% block title %}rechercher un film{% endblock%}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+
+
+{% block content %}
+    <h3>Rechercher un film</h3>
+    <hr >
+    {{ form_start(form, {'attr': {'class': ''}}) }}
+        <div class="form-group">
+            {{ form_label(form.titre, null, { 'label_attr': {'class': 'col-sm-2 text-sm-right text-lg-right text-md-right'} }) }}
+            <div class="col-sm-6 col-xs-12">
+                {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}{{ form_errors(form.titre) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.categorie, null, { 'label_attr': {'class': 'col-sm-2 text-sm-right text-lg-right text-md-right'} }) }}
+            <div class="col-sm-6 col-xs-12">
+                {{ form_widget(form.categorie, {'attr': {'class': 'form-control'}}) }}{{ form_errors(form.categorie) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.createdAt, null, { 'label_attr': {'class': 'col-sm-2 text-sm-right text-lg-right text-md-right'} }) }}
+            <div class="col-sm-6 col-xs-12">
+                {{ form_widget(form.createdAt, {'attr': {'class': 'form-control datepicker'}}) }}{{ form_errors(form.createdAt) }}
+            </div>
+        </div>
+        <br />
+        <div class="" id="sidebar" role="navigation">
+            <input type="submit" value="Valider" class="btn btn-primary" />
+        </div>
+    {{ form_end(form) }}
+    
+       
+                    
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'Layout/page.html.twig' %}
+
+{% block title %}Modifier un film{% endblock%}
+
+{% block content %}
+    <div class="span12">
+        <div class="row">
+            <div class="span5">
+               {% if film.media != null %}
+                   <img title="{{ film.titre }}" src="{{ asset('images') }}/{{ film.media }}" alt="" width="470" height="310">
+               {% else %}
+                   <img title="no-logo" src="{{ asset('img') }}/NoLogo.jpg" alt="" width="300" height="200">
+               {% endif %}
+            </div>
+            <div class="span7">
+                <h4>{{ film.titre }}</h4>
+                <h5 class="text-warning">{{ film.categorie }}</h5>
+                <p class="text-justify" style="text-align:justify;">{{ film.description|raw }}</p>
+                <div>
+                    <a class="btn btn-default" href="{{ path('film_index') }}">Retour à la liste</a>
+                    <a class="btn btn-danger" href="{{ path('film_delete',{'id' : film.id}) }}">
+                        Supprimer</span></a>
+                </div>  
+
+            </div>
+        </div>
+    </div>
+                    
+
+{% endblock %}

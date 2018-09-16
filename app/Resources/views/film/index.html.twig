@@ -1,0 +1,38 @@
+{% extends 'Layout/page.html.twig' %}
+
+{% block title %}Liste des films{% endblock%}
+
+{% block content %}
+    
+        {% if films|length > 0 %}
+        {% if countFilms is  defined %}
+            <p class="text-bold text-right">Nombre de films : {{ countFilms }}</p>
+        {% endif %}
+        <ul class="thumbnails">
+            {% for film in films %}
+                <li class="span3">
+                    <div class="thumbnail">
+                        <a href="{{ path('film_show',{'id' : film.id, 'slugCategorie' : film.categorie.slug, 'slugTitreFilm' : film.titre  }) }}">
+                            {% if film.media != null %}
+                            <img title="{{ film.titre }}" src="{{ asset('images') }}/{{ film.media }}" alt="" width="300" height="300">
+                            {% else %}
+                            <img title="no-logo" src="{{ asset('img') }}/NoLogo.jpg" alt="" width="300" height="200">
+                             {% endif %}
+                        </a>
+                        <p class="text-warning" >{{ film.categorie }}</p>    
+                        <div class="caption">
+                            <h4><a href="{{ path('film_show',{'id' : film.id, 'slugCategorie' : film.categorie.slug, 'slugTitreFilm' : film.titre  }) }}">{{ film.titre }}</a></h4>
+                            <p class="text-justify">{{ film.description(10)|raw }}</p>
+                            <a class="btn btn-primary" href="{{ path('film_edit',{'id' : film.id}) }}">Modifier</a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="navigation text-center">
+        {{ knp_pagination_render(films) }}
+        </div>
+        {% else %}
+            <p class="text-warning">Aucun Film</p>
+        {% endif %}               
+{% endblock %}
